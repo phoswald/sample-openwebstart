@@ -13,12 +13,11 @@ $ java -cp 'target/codebase/*' \
 
 $ docker run -it --rm \
   -p 8080:80 \
-  -v $(pwd)/target/classes/resources:/usr/share/nginx/html \
-  -v $(pwd)/target/codebase:/usr/share/nginx/html/codebase \
+  -v $(pwd)/target/codebase:/usr/share/nginx/html \
   nginx:alpine
   
 $ curl 'http://localhost:8080/sample.jnlp' -I
-$ curl 'http://localhost:8080/codebase/sample-openwebstart-0.1.0-SNAPSHOT.jar' -I
+$ curl 'http://localhost:8080/sample-openwebstart-0.1.0-SNAPSHOT.jar' -I
 
 $ javaws 'http://localhost:8080/sample.jnlp'
 ~~~
@@ -49,4 +48,4 @@ Notes:
 ## TODO
   
 - JARs should be signed
-- JARs should have to be listed manually in JNLP file.
+- JARs should not have to be listed manually in JNLP file.

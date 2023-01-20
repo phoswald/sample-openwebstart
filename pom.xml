@@ -47,9 +47,34 @@
             <manifest>
               <mainClass>com.github.phoswald.sample.SwingApplication</mainClass>
             </manifest>
+            <manifestEntries>
+              <Permissions>sandbox</Permissions>
+            </manifestEntries>
           </archive>
           <outputDirectory>target/codebase</outputDirectory>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>copy-jnlp</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>src/main/resources/codebase</directory>
+                </resource>
+              </resources>
+              <outputDirectory>target/codebase</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>      
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
