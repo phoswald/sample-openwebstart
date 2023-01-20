@@ -44,56 +44,40 @@
         <version>3.3.0</version>
         <configuration>
           <archive>
-            <manifest>
-              <mainClass>com.github.phoswald.sample.SwingApplication</mainClass>
-            </manifest>
             <manifestEntries>
               <Permissions>sandbox</Permissions>
             </manifestEntries>
           </archive>
-          <outputDirectory>target/codebase</outputDirectory>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.0</version>
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>webstart-maven-plugin</artifactId>
+        <version>1.0-beta-7</version>
         <executions>
           <execution>
-            <id>copy-jnlp</id>
             <phase>package</phase>
             <goals>
-              <goal>copy-resources</goal>
+              <goal>jnlp-single</goal>
             </goals>
             <configuration>
-              <resources>
-                <resource>
-                  <directory>src/main/resources/codebase</directory>
-                </resource>
-              </resources>
-              <outputDirectory>target/codebase</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>      
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.4.0</version>
-        <executions>
-          <execution>
-            <id>copy-libs</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <includeScope>runtime</includeScope>
-              <outputDirectory>target/codebase</outputDirectory>
+              <codebase>.</codebase>
+              <jnlp>
+                <j2seVersion>1.8+</j2seVersion> <!-- JRE of javaws launcher, not JRE of application! -->
+                <mainClass>com.github.phoswald.sample.SwingApplication</mainClass>
+                <outputFile>sample.jnlp</outputFile>
+              </jnlp>
             </configuration>
           </execution>
         </executions>
-      </plugin>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>keytool-api-1.7</artifactId>
+            <version>1.5</version>
+          </dependency>
+        </dependencies>
+      </plugin>    
     </plugins>
   </build>
 </project>

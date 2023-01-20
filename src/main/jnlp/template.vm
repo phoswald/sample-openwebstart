@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="$encoding"?>
+<jnlp spec="$jnlpspec" codebase="$jnlpCodebase">
+  <information>
+    <title>Sample Application</title>
+    <vendor>Sample Corporation</vendor>
+    <homepage href="https://github.com/phoswald/sample-openwebstart"/>
+    <description>Sample for OpenWebStart</description>
+  </information>
+  <resources>
+    <j2se version="$j2seVersion"/>
+     $dependencies
+     $extensions
+  </resources>
+  <application-desc main-class="$mainClass"/>
+</jnlp>
