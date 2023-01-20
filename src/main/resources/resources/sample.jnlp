@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="http://localhost:8080/codebase">
+    <information>
+        <title>OpenWebStart Sample Application</title>
+        <vendor>Sample Corporation</vendor>
+    </information>
+    <resources>
+        <j2se version="1.2+"/>
+        <jar href="sample-openwebstart-0.1.0-SNAPSHOT.jar" main="true" />
+        <jar href="slf4j-api-2.0.6.jar" />
+        <jar href="slf4j-simple-2.0.6.jar" />
+    </resources>
+    <application-desc/>
+</jnlp>
