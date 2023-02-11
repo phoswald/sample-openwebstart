@@ -19,10 +19,10 @@ $ java -cp 'target/jnlp/*' \
 
 $ docker run -it --rm \
   -p 8080:80 \
-  -v $(pwd)/target/jnlp:/usr/share/nginx/html \
-  -v $(pwd)/src/main/resources/index.html:/usr/share/nginx/html/index.html \
+  -v ./target/jnlp:/usr/share/nginx/html \
+  -v ./src/main/resources/index.html:/usr/share/nginx/html/index.html \
   nginx:alpine
-  
+
 $ curl 'http://localhost:8080/sample.jnlp' -I
 $ curl 'http://localhost:8080/sample-openwebstart-0.1.0-SNAPSHOT.jar' -I
 
